@@ -32,7 +32,6 @@ export class PlayersComponent implements OnInit {
                 this.loading = false;
             })
             .subscribe(returnObj => {
-                console.log('here');
                     this.statistics = returnObj.statistics;
                     this.players = returnObj.players;
                     // Create a HashObject for faster retrieval with a single pass. No recalculation required.
@@ -40,7 +39,6 @@ export class PlayersComponent implements OnInit {
                     this.selectPlayer(this.players[0].player_id);
                 },
                 error => {
-                    console.log('errr');
                     this.errorMessage = 'Sorry! Something went wrong!';
                 });
     }
