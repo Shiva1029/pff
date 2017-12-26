@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div *ngIf="loading" class="loader"></div>
+            <button *ngFor="let player of players" class="btn btn-info btn-lg makePointer addSmallMargin"
+                    [ngClass]="{'active': id === player.player_id}"
+                    (click)="selectPlayer(player.player_id)">{{player.first_name}} {{player.last_name}}
+            </button>
+            <table *ngIf="!loading && selectedStats" class="table table-striped statTable">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#Week</th>
+                    <th scope="col">Yards</th>
+                    <th scope="col">Touchdowns</th>
+                    <th scope="col">On Hometeam</th>
+                    <th scope="col">Interceptions</th>
+                    <th scope="col">Hometeam</th>
+                    <th scope="col">Completions</th>
+                    <th scope="col">Away Team</th>
+                    <th scope="col">Attempts</th>
+                    <th scope="col">Passer Rating</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let stat of selectedStats">
+                    <td>{{stat.week}}</td>
+                    <td>{{stat.yards}}</td>
+                    <td>{{stat.touchdowns}}</td>
+                    <td> {{stat.on_home_team ? 'Y' : 'N'}}</td>
+                    <td>{{stat.interceptions}}</td>
+                    <td>{{stat.home_team}}</td>
+                    <td>{{stat.completions}}</td>
+                    <td>{{stat.away_team}}</td>
+                    <td>{{stat.attempts}}</td>
+                    <td>{{stat.pr}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row addMargin">
+        <div class="alert alert-danger" *ngIf="!loading && errorMessage!==''">
+            <strong>Error!</strong>
+            {{errorMessage}}
+        </div>
+    </div>
+</div>
