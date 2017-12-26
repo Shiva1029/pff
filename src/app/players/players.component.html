@@ -6,7 +6,7 @@
                     [ngClass]="{'active': id === player.player_id}"
                     (click)="selectPlayer(player.player_id)">{{player.first_name}} {{player.last_name}}
             </button>
-            <table *ngIf="!loading && selectedStats" class="table table-striped statTable">
+            <table *ngIf="!loading && selectedStats.length > 0" class="table table-striped statTable">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">#Week</th>

@@ -1,6 +1,6 @@
 # Pff
 
-https://www.collegestash.com/pff
+https://www.collegestash.com/pff/index.html
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 You will be to install angular cli to run this project.
